@@ -21,7 +21,7 @@ class Producto(models.Model):
     nombreProducto = models.CharField(max_length=150)
     costoPresupuestado = models.IntegerField()
     costoReal = models.IntegerField()
-    tienda = models.ForeignKey(Tienda, on_delete=models.CASCADE)
+    tienda = models.ForeignKey(Tienda, on_delete=models.CASCADE,null=True)
     notaAdicional = models.CharField(max_length=150)
 
     def __str__(self):
