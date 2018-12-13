@@ -1,17 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Base</title>
+    <title>Tienda Electronica</title>
+    {% load static %}
+	<link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'core/css/google.css' %}">
+	<link rel="stylesheet" href="{% static 'core/css/estilos.css' %}">
+	<link rel="stylesheet" href="{% static 'core/css/slick.css' %}">
+	<link rel="stylesheet" href="{% static 'core/css/slick-theme.css' %}">
+	<link rel="stylesheet" href="{% static 'core/css/nouislider.min.css' %}">
+	<link rel="stylesheet" href="{% static 'core/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'core/css/style.css' %}">    
 
 </head>
 
 <body>
+       	<!-- HEADER -->
+		<header>
+			<!-- TOP HEADER -->
+			<div id="top-header">
+				<div class="container">
+					<ul class="header-links pull-left">
+						<li><a href="#"><i class="fa fa-phone"></i> +569 6605 5791</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> ne.munoza@alumnos.duoc.cl</a></li>
+						<li><a href="#"><i class="fa fa-map-marker"></i> 352 Eyzaguirre</a></li>
+					</ul>
+					<ul class="header-links pull-right">
+						<li><a href="#"><i class="fa fa-dollar"></i> 10.000 Pesos</a></li>
+						<li><a href="#"><i class="fa fa-user-o"></i> Usuario: Petal</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- /TOP HEADER -->
+
+			<!-- MAIN HEADER -->
+			<div id="header">
+				<!-- Contenedor -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<!-- Logo -->
+						<div class="col-md-3">
+							<div class="header-logo">
+								<a href="#" class="logo">
+										<img src="{% static 'core/imagenes/logo.png' %}" alt="">
+								</a>
+							</div>
+						</div>
+						<!-- Logo -->
+
+						<!-- Buscador -->
+						<div class="col-md-6">
+							<div class="header-search">
+								<form>
+									<select class="input-select">
+										<option value="0">Seleccionar</option>
+										<option value="1">Tienda 1</option>
+										<option value="1">Tienda 2</option>
+									</select>
+									<input class="input" placeholder="Tiendas Registradas">
+									<button class="search-btn">Buscar</button>
+								</form>
+							</div>
+						</div>
+						<!-- Buscador -->
+
+						<!-- Cuenta de usuario -->
+						<div class="col-md-3 clearfix">
+							<div class="header-ctn">
+								<!-- Lista de deseados -->
+								<div>
+									<a href="#">
+										<i class="fa fa-heart-o"></i>
+										<span>Tiendas favoritas</span>
+										<div class="qty">2</div>
+									</a>
+								</div>
+								<!-- Lista de deseados -->
+
+								<!-- Carrito -->
+								<div class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+										<i class="fa fa-shopping-cart"></i>
+										<span>Tu Carrito</span>
+										<div class="qty">3</div>
+									</a>
+									<div class="cart-dropdown">
+										<div class="cart-list">
+											<div class="product-widget">
+												<div class="product-img">
+													<img src="./img/product01.png" alt="">
+												</div>
+												<div class="product-body">
+													<h3 class="product-name"><a href="#">product name goes here</a></h3>
+													<h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
+												</div>
+												<button class="delete"><i class="fa fa-close"></i></button>
+											</div>
+
+											<div class="product-widget">
+												<div class="product-img">
+													<img src="./img/product02.png" alt="">
+												</div>
+												<div class="product-body">
+													<h3 class="product-name"><a href="#">product name goes here</a></h3>
+													<h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
+												</div>
+												<button class="delete"><i class="fa fa-close"></i></button>
+											</div>
+										</div>
+										<div class="cart-summary">
+											<small>3 Item(s) selected</small>
+											<h5>SUBTOTAL: $2940.00</h5>
+										</div>
+										<div class="cart-btns">
+											<a href="#">View Cart</a>
+											<a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+										</div>
+									</div>
+								</div>
+								<!-- fin Carrito -->
+
+								<!-- Menu Toogle -->
+						<div class="menu-toggle">
+									<a href="#">
+										<i class="fa fa-bars"></i>
+										<span>Menu</span>
+									</a>
+								</div>
+								<!-- fin Menu Toogle -->
+							</div>
+						</div>
+						<!-- fin de cuenta de usuario -->
+					</div>
+					<!-- fin row -->
+				</div>
+				<!-- fin contenedor -->
+			</div>
+			<!-- fin main header -->
+		</header>
+		<!-- fin header -->
+
+		<!-- Navegador -->
+		<nav id="navigation">
+			<!-- Contenedor del navegador -->
+			<div class="container">
+				<!-- Navegador responsivo -->
+				<div id="responsive-nav">
+					<!-- Navegador -->
+					<ul class="main-nav nav navbar-nav">
+						<li><a href="{% url 'home' %}">Inicio</a></li>
+						<li><a href="#">Lista de compras</a></li>
+						<li><a href="{% url 'agregarProducto' %}">Productos</a></li>
+						<li><a href="#">Usuarios</a></li>
+						
+					</ul>
+					<!-- Navegador -->
+				</div>
+				<!-- Navegador responsivo -->
+			</div>
+			<!-- Contenedor -->
+		</nav>
+		<!-- Navegador -->
     
-<!-- PAGINA BASE CON ESTA PAGINA HAREMOS TODAS, ASI QUE ENFOQUEMONOS EN ESTA-->
+
+
+ {% block contenido %} 
+    
+ {% endblock contenido %} 
+
+
+<!-- FOOTER -->
+		<footer id="footer">
+			<!-- top footer -->
+			<div class="section">
+				<!-- Contenedor del footer -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Acerca de nosotros</h3>
+								<p>Sitio web, el cual funciona como gestionador de tiendas virtuales, el cual entrega comodidad a los usuarios a la hora de comprar un producto.</p>
+								<ul class="footer-links">
+									<li><a href="#"><i class="fa fa-map-marker"></i>352 San Carlos</a></li>
+									<li><a href="#"><i class="fa fa-phone"></i>+569 6605 5791</a></li>
+									<li><a href="#"><i class="fa fa-envelope-o"></i>ne.munoza@alumnos.duoc.cl</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Categorias</h3>
+								<ul class="footer-links">
+									<li><a href="#">Mas vendido</a></li>
+									<li><a href="#">Mas buscados</a></li>
+									<li><a href="#">Mas deseados</a></li>
+									<li><a href="#">Nuevas Tiendas</a></li>
+									<li><a href="#">Tiendas mas valoradas</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="clearfix visible-xs"></div>
+
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Informacion</h3>
+								<ul class="footer-links">
+									<li><a href="#">Conocenos</a></li>
+									<li><a href="#">Contactanos</a></li>
+									<li><a href="#">Politicas Privadas</a></li>
+									<li><a href="#">Acuerdos y reuniones</a></li>
+									<li><a href="#">Terminos y condiciones</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Servicios</h3>
+								<ul class="footer-links">
+									<li><a href="#">Mi Cuenta</a></li>
+									<li><a href="#">Ver Carrito</a></li>
+									<li><a href="#">Lista de Deseados</a></li>
+									<li><a href="#">Seguimiento de lista</a></li>
+									<li><a href="#">Ayuda</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- fin row -->
+				</div>
+				<!-- Contenedor footer -->
+			</div>
+			<!-- top footer -->
+
+			<!-- bottom footer -->
+			<div id="bottom-footer" class="section">
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<ul class="footer-payments">
+								<li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+								<li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+							</ul>
+							<span class="copyright">
+								<!-- Copyright para darle mas profesionalismo-->
+								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Pagina auspiciada por el magico <i class="fa fa-heart-o" aria-hidden="true"></i> by CHARLIE
+								<!-- Copyright para darle mas profesionalismo-->
+							</span>
+						</div>
+					</div>
+						<!-- fin row -->
+				</div>
+				<!-- fin Contenedor footer -->
+			</div>
+			<!-- fin bottom footer -->
+		</footer>
+		<!-- fin footer -->
+
+       
+        <script src="{% static 'core/js/jQuery.js' %}"></script>
+        <script src="{% static 'core/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'core/js/slick.min.js' %}"></script>
+        <script src="{% static 'core/js/nouislider.min.js' %}"></script>
+        <script src="{% static 'core/js/jquery.zoom.min.js' %}"></script>
+        <script src="{% static 'core/js/main.js' %}"></script>
+
 
 </body>
 </html>
