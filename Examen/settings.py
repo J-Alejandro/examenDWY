@@ -27,8 +27,20 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#activamos la mensajeria de DJANGO
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
+#Le decimos a Django donde se redirigira
+#el usuario una vez autenticado correctamente
+LOGIN_REDIRECT_URL = "/"
+
+#Le decimos a django donde se redirigira el usuario
+#en la pagina cuando haya cerrado la sesion
+LOGOUT_REDIRECT_URL = "/"
 
 # Application definition
+SOCIAL_AUTH_FACEBOOK_KEY = '385544145353469' # APP ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '5d5a92a3a6de6ec286f15c77b2c71649' # APP SECRET
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -37,7 +49,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'core',
+    'accounts',
+    'social_django',
+    'crispy_forms',
+    'pwa',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -47,6 +66,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'Examen.urls'
@@ -62,6 +82,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends', #se agrega esta linea
+                'social_django.context_processors.login_redirect', #se agrega esta linea
             ],
         },
     },
@@ -103,7 +125,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'UTC'
 
@@ -118,3 +140,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_LOGIN_ERROR_URL= '/'
+SOCIAL_AUTH_RAISE_EXCEPTIONS = False
