@@ -11,3 +11,14 @@
 form.needs-validation {
     margin-bottom: 6%;
 }
+
+a.left.carousel-control {
+    background: none!important;
+}
+a.right.carousel-control {
+    background: none!important;
+}
+
+.item {
+    margin-left: 28%;
+}

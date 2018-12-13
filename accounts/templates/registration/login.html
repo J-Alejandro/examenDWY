@@ -1,6 +1,7 @@
 {% extends "core/base.html" %}
 {% block contenido %}
 <div class="wrapper">
+  <div class="divDos">
         <form class="form-signin" action="" method="POST">    
             {% csrf_token %}   
           <h2 class="form-signin-heading">Iniciar Sesión</h2>
@@ -17,7 +18,7 @@
         </form>
         <!---->
       </div>
-
+</div>
 
       
 {% endblock contenido %}

@@ -1,0 +1,44 @@
+{% extends "core/base.html" %}
+
+{% block contenido %}
+{% load static %}
+	<div><h3>Lista de Producto</h1></div>
+
+		<div>
+			<table class="table table-sm">
+				<thead>
+					<tr>
+						<!-- ***********************  -->
+						<!--<th scope="col">ID</th>-->
+						<!-- ***********************  -->
+						<th scope="col">Nombre</th>
+						<th scope="col">Costo Presupuestado</th>
+						<th scope="col">Costo Real</th>
+						<th scope="col">Tienda</th>
+						<th scope="col">Nota Adicional</th>
+					</tr>
+				</thead>
+		
+				<tbody>
+					{% for p in productos %}
+					<tr>
+						<!--<th scope="row">{{ma.id}}</th>-->
+						<th scope="row">{{p.nombreProducto}}</th>
+						<td>{{p.costoPresupuestado}}</td>
+						<td>{{p.costoReal}}</td>
+						<td>{{p.tienda}}</td>
+						<td>{{p.notaAdicional}}</td>
+						<td>
+							<a href="{% url 'eliminarProducto' p.id %}">Eliminar</a>
+						</td>
+					</tr>
+					<tr>
+		
+					</tr>
+					{% endfor %}
+				</tbody>
+		
+			</table>
+		</div>
+
+{% endblock contenido %}

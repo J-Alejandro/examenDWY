@@ -35,7 +35,7 @@ class ProductoForm(forms.ModelForm):
             'nombreProducto',
             'costoPresupuestado',
             'costoReal',
-            #'tienda',
+            'tienda',
             'notaAdicional',
         )
 
@@ -43,7 +43,7 @@ class ProductoForm(forms.ModelForm):
             'nombreProducto':'Nombre Producto',
             'costoPresupuestado':'Costo Presupuestado',
             'costoReal':'Costo Real',
-            #'tienda':'Tienda',
+            'tienda':'Tienda',
             'notaAdicional':'Nota Adicional',
         }
 
@@ -51,7 +51,7 @@ class ProductoForm(forms.ModelForm):
             'nombreProducto':forms.TextInput(attrs={'class':'form-control'}),
             'costoPresupuestado':forms.TextInput(attrs={'class':'form-control'}),
             'costoReal':forms.TextInput(attrs={'class':'form-control'}),
-            #'tienda':forms.TextInput(attrs={'class':'form-control'}),
+            'tienda':forms.Select(attrs={'class':'form-control'}),
             'notaAdicional':forms.TextInput(attrs={'class':'form-control'}),
             
         }
